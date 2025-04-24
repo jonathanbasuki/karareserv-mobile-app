@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="80dp"
+    android:background="@color/primaryBackground">
+
+    <!-- Scrollable content -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:padding="16dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:paddingBottom="32dp">
+
+            <!-- Avatar dan Nama -->
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/imageAvatar"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:src="@drawable/ic_profile"
+                android:scaleType="centerCrop"
+                android:layout_marginBottom="12dp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/textUsername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Username"
+                android:textAppearance="?attr/textAppearanceHeadlineSmall" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/textEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="email@example.com"
+                android:textColor="?android:attr/textColorSecondary"
+                android:layout_marginBottom="24dp" />
+
+            <!-- Card Menu -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="4dp"
+                app:cardCornerRadius="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@color/secondaryBackground">
+
+                    <!-- Wishlist -->
+                    <LinearLayout
+                        android:id="@+id/menuWishlist"
+                        style="@style/MaterialMenuRow"
+                        android:background="?attr/selectableItemBackground">
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_wishlist"
+                            app:tint="?attr/colorOnSurface" />
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:paddingStart="16dp"
+                            android:text="Wishlist" />
+                    </LinearLayout>
+
+                    <!-- Settings -->
+                    <LinearLayout
+                        android:id="@+id/menuSettings"
+                        style="@style/MaterialMenuRow"
+                        android:background="?attr/selectableItemBackground">
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_settings"
+                            app:tint="?attr/colorOnSurface" />
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:paddingStart="16dp"
+                            android:text="Settings" />
+                    </LinearLayout>
+
+                    <!-- Logout -->
+                    <LinearLayout
+                        android:id="@+id/menuLogout"
+                        style="@style/MaterialMenuRow"
+                        android:background="?attr/selectableItemBackground">
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_logout"
+                            app:tint="@android:color/holo_red_dark" />
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:paddingStart="16dp"
+                            android:text="Logout"
+                            android:textColor="@android:color/holo_red_dark" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Text Version (Sticky at the Bottom) -->
+    <TextView
+        android:id="@+id/textVersion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Version 1.0.0"
+        android:textColor="?android:attr/textColorSecondary"
+        android:textAppearance="?attr/textAppearanceBody2"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp" />
+
+</RelativeLayout>

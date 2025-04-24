@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">KaraReserve</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="room_description">At Slash Karaoke, we believe every voice deserves the spotlight. That’s why we’ve created the ultimate karaoke experience in our premium, soundproof rooms designed for fun, comfort, and unforgettable memories. Each room features a 50-inch HD screen, a crystal-clear surround sound system, and wireless microphones with voice-enhancing features to make you feel like a star. Relax on our plush leather sofas that comfortably seat up to 10 people, enjoy the cool air conditioning, and set the mood with customizable ambient lighting. You’ll also find a convenient tablet to easily browse thousands of songs in multiple languages, along with a mini-bar stocked with complimentary drinks and snacks.</string>
+</resources>

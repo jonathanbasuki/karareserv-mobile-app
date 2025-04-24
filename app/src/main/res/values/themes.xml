@@ -1,0 +1,18 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.KaraReserve" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Primary brand color -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryVariant">@color/primaryContainer</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+        <!-- Secondary brand color -->
+        <item name="colorSecondary">@color/primaryContainer</item>
+        <item name="colorOnSecondary">@color/textPrimary</item>
+
+        <!-- Background color -->
+        <item name="android:colorBackground">@color/primaryBackground</item>
+    </style>
+
+    <style name="Theme.KaraReserve" parent="Base.Theme.KaraReserve" />
+</resources>

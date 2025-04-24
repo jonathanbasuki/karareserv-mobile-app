@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primaryBackground">
+
+    <!-- AppBar -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/topAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/primaryBackground"
+        app:navigationIcon="@drawable/ic_arrow_back"
+        app:title="Room Detail"
+        app:menu="@menu/menu_detail_toolbar" />
+
+    <!-- Konten scroll -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="80dp"
+        android:layout_below="@id/topAppBar"
+        android:clipToPadding="false"
+        android:paddingTop="56dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Image Slider -->
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/imageSlider"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginBottom="16dp" />
+
+            <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
+                android:id="@+id/dotsIndicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="16dp"
+                app:dotsSize="8dp"
+                app:dotsColor="@color/black"
+                app:selectedDotColor="@color/black"/>
+
+            <!-- Detail Room -->
+            <TextView
+                android:id="@+id/roomTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="VIP Karaoke Room"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/roomCapacity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Capacity: 8 People"
+                android:layout_marginTop="4dp" />
+
+            <TextView
+                android:id="@+id/labelDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Room Description"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:layout_marginTop="12dp" />
+
+            <TextView
+                android:id="@+id/roomDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/room_description"
+                android:lineHeight="20sp"
+                android:layout_marginTop="4dp" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Sticky Footer -->
+    <LinearLayout
+    android:id="@+id/footerContainer"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:layout_gravity="bottom"
+    android:background="@color/white"
+    android:orientation="horizontal"
+    android:elevation="8dp"
+    android:padding="16dp"
+    android:gravity="center_vertical"
+    android:weightSum="1">
+
+    <TextView
+        android:id="@+id/roomPrice"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"
+        android:text="Rp 250.000"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnReserve"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"
+        android:text="Booking Now"
+        android:backgroundTint="@color/primary"/>
+    </LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
