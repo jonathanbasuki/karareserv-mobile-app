@@ -38,21 +38,25 @@
 
         <!-- Search Field -->
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/searchRoom"
+            android:id="@+id/inputSearch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="Search Room"
             android:layout_marginTop="16dp"
-            android:hint="Search for a room..."
-            android:background="@color/secondaryBackground"
-            app:layout_constraintTop_toBottomOf="@id/labelWelcome"
+            style="@style/inputField"
+            app:endIconMode="custom"
+            app:endIconDrawable="@drawable/ic_search"
+            app:endIconContentDescription="Search Room"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/labelWelcome">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/valueRoom"
+                android:id="@+id/valueSearch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:maxLines="1" />
+
         </com.google.android.material.textfield.TextInputLayout>
 
         <!-- RecyclerView Grid -->
@@ -65,7 +69,7 @@
             android:paddingBottom="16dp"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:spanCount="2"
-            app:layout_constraintTop_toBottomOf="@id/searchRoom"
+            app:layout_constraintTop_toBottomOf="@id/inputSearch"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:overScrollMode="never" />

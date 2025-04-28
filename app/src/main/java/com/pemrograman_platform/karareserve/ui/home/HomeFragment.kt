@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.pemrograman_platform.karareserve.R
 import com.pemrograman_platform.karareserve.adapter.KaraokeRoomAdapter
 import com.pemrograman_platform.karareserve.data.KaraokeRoom
+import com.pemrograman_platform.karareserve.utils.GridSpacingItemDecoration
 
 class HomeFragment : Fragment() {
 
@@ -31,12 +32,22 @@ class HomeFragment : Fragment() {
         recyclerView = view.findViewById(R.id.recyclerViewRooms)
         recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
 
+        val spanCount = 2
+        val spacingInDp = 16
+
+        val scale = resources.displayMetrics.density
+        val spacingInPx = (spacingInDp * scale + 0.5f).toInt()
+
+        recyclerView.addItemDecoration(
+            GridSpacingItemDecoration(spanCount, spacingInPx, false)
+        )
+
         roomList = listOf(
-            KaraokeRoom(R.drawable.vip_room, "VIP Room", "Capacity: 10 people", "Rp480.000"),
-            KaraokeRoom(R.drawable.deluxe_room, "Deluxe Room", "Capacity: 8 people", "Rp400.000"),
-            KaraokeRoom(R.drawable.classic_room, "Classic Room", "Capacity: 6 people", "Rp320.000"),
-            KaraokeRoom(R.drawable.family_room, "Family Room", "Capacity: 12 people", "Rp460.000"),
-            KaraokeRoom(R.drawable.regular_room, "Regular Room", "Capacity: 4 people", "Rp250.000")
+            KaraokeRoom(R.drawable.vip_room, "VIP Room", "10 persons", "Rp480.000"),
+            KaraokeRoom(R.drawable.deluxe_room, "Deluxe Room", "8 persons", "Rp400.000"),
+            KaraokeRoom(R.drawable.classic_room, "Classic Room", "6 persons", "Rp320.000"),
+            KaraokeRoom(R.drawable.family_room, "Family Room", "12 persons", "Rp460.000"),
+            KaraokeRoom(R.drawable.regular_room, "Regular Room", "4 persons", "Rp250.000")
         )
 
         roomAdapter = KaraokeRoomAdapter(roomList) { selectedRoom ->
