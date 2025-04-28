@@ -1,5 +1,6 @@
 [versions]
 agp = "8.7.1"
+curvenavxVersion = "1.2.0"
 dotsindicator = "4.3"
 kotlin = "1.9.24"
 coreKtx = "1.16.0"
@@ -14,6 +15,7 @@ constraintlayout = "2.2.1"
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 dotsindicator = { module = "com.tbuonomo:dotsindicator", version.ref = "dotsindicator" }
+homayoonahmadi-curvenavx = { module = "com.github.homayoonahmadi:CurveNavX", version.ref = "curvenavxVersion" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }

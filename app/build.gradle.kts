@@ -47,6 +47,7 @@ dependencies {
     implementation(libs.navigation.fragment.ktx)
     implementation(libs.navigation.ui.ktx)
     implementation(libs.dotsindicator)
+    implementation(libs.homayoonahmadi.curvenavx)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

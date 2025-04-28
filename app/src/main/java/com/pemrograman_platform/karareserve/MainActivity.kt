@@ -23,20 +23,20 @@ class MainActivity : AppCompatActivity() {
                 .commit()
         }
 
-        binding.bottomNavigation.setOnNavigationItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.nav_home -> {
+        binding.bottomNavigation.setOnShowListener { item ->
+            binding.bottomNavigation.clearCountDelayed(item.id, 200)
+
+            when (item.id) {
+                0 -> {
                     loadFragment(HomeFragment())
                     true
                 }
-                R.id.nav_history -> {
+                1 -> {
                     loadFragment(HistoryFragment())
-
                     true
                 }
-                R.id.nav_profile -> {
+                2 -> {
                     loadFragment(ProfileFragment())
-
                     true
                 }
                 else -> false
@@ -46,6 +46,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun loadFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
+            .setCustomAnimations(
+                android.R.anim.fade_in,
+                android.R.anim.fade_out
+            )
             .replace(R.id.fragmentContainer, fragment)
             .commit()
     }
