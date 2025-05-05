@@ -1,12 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <!-- Color Additional -->
+    <color name="secondaryIcon">#FBA960</color>
 
-    <color name="primary">#FFFF752F</color>
-    <color name="primaryBackground">#FFFAFAFA</color>
-    <color name="secondaryBackground">#FFFFFAFA</color>
-    <color name="primaryContainer">#FFFDF6F0</color>
+    <!-- Color Palette -->
+    <color name="primary">#F97316</color>
+    <color name="onPrimary">#FFFFFF</color>
+    <color name="primaryContainer">#FFE0C2</color>
+    <color name="onPrimaryContainer">#3D1F00</color>
 
-    <color name="textPrimary">#2C2826</color>
+    <color name="secondary">#FDBA74</color>
+    <color name="onSecondary">#3D2A12</color>
+    <color name="secondaryContainer">#FFF1DC</color>
+    <color name="onSecondaryContainer">#442B0C</color>
+
+    <color name="tertiary">#D97706</color>
+    <color name="onTertiary">#FFFFFF</color>
+    <color name="tertiaryContainer">#FFEBC2</color>
+    <color name="onTertiaryContainer">#4C2C00</color>
+
+    <color name="background">#FFFCFA</color>
+    <color name="onBackground">#1E1B16</color>
+    <color name="surface">#FFFCFA</color>
+    <color name="onSurface">#1E1B16</color>
+    <color name="surfaceVariant">#F5E5D5</color>
+    <color name="onSurfaceVariant">#4C3D31</color>
+
+    <color name="outline">#8B7766</color>
+    <color name="error">#B3261E</color>
+    <color name="onError">#FFFFFF</color>
+    <color name="errorContainer">#F9DEDC</color>
+    <color name="onErrorContainer">#410002</color>
+
 </resources>

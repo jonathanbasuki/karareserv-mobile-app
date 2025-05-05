@@ -4,5 +4,7 @@
     <item
         android:id="@+id/action_favorite"
         android:icon="@drawable/ic_favorite"
-        android:title="Wishlist" />
+        android:title="Wishlist"
+        app:iconSize="48dp"
+        app:showAsAction="always" />
 </menu>

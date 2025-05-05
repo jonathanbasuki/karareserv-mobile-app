@@ -2,6 +2,7 @@
 agp = "8.7.1"
 curvenavxVersion = "1.2.0"
 dotsindicator = "4.3"
+glide = "4.16.0"
 kotlin = "1.9.24"
 coreKtx = "1.16.0"
 junit = "4.13.2"
@@ -15,6 +16,7 @@ constraintlayout = "2.2.1"
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 dotsindicator = { module = "com.tbuonomo:dotsindicator", version.ref = "dotsindicator" }
+glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
 homayoonahmadi-curvenavx = { module = "com.github.homayoonahmadi:CurveNavX", version.ref = "curvenavxVersion" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }

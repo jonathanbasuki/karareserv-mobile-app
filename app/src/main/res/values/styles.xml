@@ -1,13 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="inputField">
-        <item name="boxBackgroundColor">@color/primaryContainer</item>
-        <item name="boxCornerRadiusTopStart">8dp</item>
-        <item name="boxCornerRadiusTopEnd">8dp</item>
-        <item name="boxCornerRadiusBottomStart">8dp</item>
-        <item name="boxCornerRadiusBottomEnd">8dp</item>
+    <!-- Headline / Title -->
+    <style name="TextHeadline">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/onBackground</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
+    <!-- Section Title -->
+    <style name="TextSectionTitle">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">@color/onBackground</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Card Title -->
+    <style name="TextCardTitle">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/tertiary</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Subtitle Text -->
+    <style name="TextSubtitle">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/onBackground</item>
+    </style>
+
+    <!-- Body Text -->
+    <style name="TextBody">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/onBackground</item>
+    </style>
+
+    <!-- Footnote Text -->
+    <style name="TextFootnote">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/onBackground</item>
+    </style>
+
+    <!-- Input Field -->
+    <style name="InputField">
+        <item name="boxCornerRadiusTopStart">12dp</item>
+        <item name="boxCornerRadiusTopEnd">12dp</item>
+        <item name="boxCornerRadiusBottomStart">12dp</item>
+        <item name="boxCornerRadiusBottomEnd">12dp</item>
+        <item name="boxBackgroundColor">@color/secondaryContainer</item>
+        <item name="boxStrokeColor">@color/tertiary</item>
+        <item name="boxStrokeErrorColor">@color/error</item>
+        <item name="hintTextColor">@color/onSecondaryContainer</item>
+        <item name="android:textColor">@color/onSecondaryContainer</item>
+        <item name="android:textColorHint">@color/onSecondaryContainer</item>
+        <item name="android:textCursorDrawable">@null</item>
+    </style>
+
+    <!-- Rounded Button -->
+    <style name="Widget.KaraReserve.RoundedButton" parent="Widget.Material3.Button">
+        <item name="cornerRadius">12dp</item>
+        <item name="android:minHeight">56dp</item>
+        <item name="android:layout_height">56dp</item>
+        <item name="android:backgroundTint">@color/tertiary</item>
+        <item name="android:textColor">@color/onTertiary</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <!-- Menu Row -->
     <style name="MaterialMenuRow">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
