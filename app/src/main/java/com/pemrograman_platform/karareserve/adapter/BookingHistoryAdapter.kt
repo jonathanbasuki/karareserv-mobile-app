@@ -28,6 +28,7 @@ class BookingHistoryAdapter(
 
     override fun onBindViewHolder(holder: BookingViewHolder, position: Int) {
         val booking = bookingList[position]
+
         holder.imageRoom.setImageResource(booking.imageResId)
         holder.textRoomType.text = booking.roomType
         holder.textBookingInfo.text = booking.bookingDate

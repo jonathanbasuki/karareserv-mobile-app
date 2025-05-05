@@ -1,11 +1,15 @@
 package com.pemrograman_platform.karareserve.adapter
 
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CenterCrop
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.pemrograman_platform.karareserve.R
 import com.pemrograman_platform.karareserve.data.KaraokeRoom
 
@@ -28,15 +32,26 @@ class KaraokeRoomAdapter(
 
     override fun onBindViewHolder(holder: KaraokeRoomViewHolder, position: Int) {
         val room = roomList[position]
-        holder.imageRoom.setImageResource(room.imageResId)
         holder.textRoomType.text = room.roomType
         holder.textCapacity.text = room.capacity
+
+        // Convert dp to px
+        val radiusPx = TypedValue.applyDimension(
+            TypedValue.COMPLEX_UNIT_DIP,
+            8f,
+            holder.itemView.context.resources.displayMetrics
+        ).toInt()
+
+        // Use Glide with CenterCrop and RoundedCorners
+        Glide.with(holder.itemView.context)
+            .load(room.imageResId)
+            .transform(CenterCrop(), RoundedCorners(radiusPx))
+            .into(holder.imageRoom)
 
         holder.itemView.setOnClickListener {
             onItemClick(room)
         }
     }
-
 
     override fun getItemCount(): Int = roomList.size
 }

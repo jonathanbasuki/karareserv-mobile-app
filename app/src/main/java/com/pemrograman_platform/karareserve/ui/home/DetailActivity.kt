@@ -2,7 +2,9 @@ package com.pemrograman_platform.karareserve.ui.home
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.appbar.MaterialToolbar
 import com.pemrograman_platform.karareserve.R
@@ -65,4 +67,14 @@ class DetailActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_detail_toolbar, menu)
+
+        val favoriteItem = menu?.findItem(R.id.action_favorite)
+        favoriteItem?.icon?.setTint(ContextCompat.getColor(this, R.color.tertiary))
+
+        return true
+    }
+
 }

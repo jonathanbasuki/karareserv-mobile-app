@@ -2,12 +2,10 @@ package com.pemrograman_platform.karareserve.ui.auth
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
+import android.os.Handler
+import android.os.Looper
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.pemrograman_platform.karareserve.MainActivity
-import com.pemrograman_platform.karareserve.R
 import com.pemrograman_platform.karareserve.databinding.ActivityRegisterBinding
 
 class RegisterActivity : AppCompatActivity() {
@@ -25,8 +23,14 @@ class RegisterActivity : AppCompatActivity() {
         }
 
         binding.registerButton.setOnClickListener {
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
+            binding.progressContainer.visibility = View.VISIBLE
+
+            Handler(Looper.getMainLooper()).postDelayed({
+                val intent = Intent(this, LoginActivity::class.java)
+
+                startActivity(intent)
+                finish()
+            }, 3000)
         }
     }
 }

@@ -57,6 +57,7 @@ class HomeFragment : Fragment() {
                 putExtra("ROOM_CAPACITY", selectedRoom.capacity)
                 putExtra("ROOM_PRICE", selectedRoom.roomPrice)
             }
+
             startActivity(intent)
         }
 
