@@ -4,32 +4,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/primaryBackground"
-    android:padding="20dp">
-
-    <!-- Progress Bar -->
-    <ProgressBar
-        android:id="@+id/linearProgressBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:visibility="gone"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+    android:padding="20dp"
+    android:background="@color/background">
 
     <!-- Title -->
     <TextView
         android:id="@+id/titleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
         android:text="Hi, there!"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:textColor="@color/textPrimary"
+        style="@style/TextHeadline"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
@@ -39,12 +24,9 @@
         android:id="@+id/subtitleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/titleTextView"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:text="Create your new account"
-        android:textSize="16sp"
-        android:textColor="@color/textPrimary"
+        style="@style/TextSubtitle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleTextView"/>
@@ -54,9 +36,9 @@
         android:id="@+id/inputEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Email Address"
         android:layout_marginTop="16dp"
-        style="@style/inputField"
+        android:hint="Email Address"
+        style="@style/InputField"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/subtitleTextView">
@@ -74,9 +56,9 @@
         android:id="@+id/inputUsername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Username"
         android:layout_marginTop="16dp"
-        style="@style/inputField"
+        android:hint="Username"
+        style="@style/InputField"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/inputEmail">
@@ -94,9 +76,9 @@
         android:id="@+id/inputPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Password"
         android:layout_marginTop="16dp"
-        style="@style/inputField"
+        android:hint="Password"
+        style="@style/InputField"
         app:endIconMode="password_toggle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -116,9 +98,9 @@
         android:id="@+id/inputConfirmPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Confirm Password"
         android:layout_marginTop="16dp"
-        style="@style/inputField"
+        android:hint="Confirm Password"
+        style="@style/InputField"
         app:endIconMode="password_toggle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -139,10 +121,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:backgroundTint="@color/primary"
         android:text="Register"
-        android:textColor="@android:color/white"
-        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/inputConfirmPassword"/>
@@ -152,13 +131,34 @@
         android:id="@+id/loginRoute"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:text="Already have an account? Login"
-        android:textSize="14sp"
-        android:textColor="@color/textPrimary"
+        style="@style/TextBody"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/registerButton"/>
+
+    <!-- Progress Bar -->
+    <FrameLayout
+        android:id="@+id/progressContainer"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/progress_background"
+        android:padding="20dp"
+        android:elevation="4dp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Large"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:indeterminate="true"
+            android:indeterminateDrawable="@drawable/progress_drawable" />
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

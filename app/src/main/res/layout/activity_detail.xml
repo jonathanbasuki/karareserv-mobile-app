@@ -4,19 +4,27 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/primaryBackground">
+    android:background="@color/background">
 
-    <!-- AppBar -->
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/topAppBar"
+    <!-- AppBar in AppBarLayout -->
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/primaryBackground"
-        app:navigationIcon="@drawable/ic_arrow_back"
-        app:title="Room Detail"
-        app:menu="@menu/menu_detail_toolbar" />
+        android:theme="@style/ThemeOverlay.Material3.Dark.ActionBar">
 
-    <!-- Konten scroll -->
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/background"
+            app:title="Room Detail"
+            app:titleTextColor="@color/onBackground"
+            app:navigationIcon="@drawable/ic_arrow_back"
+            app:navigationIconTint="@color/onBackground"
+            app:menu="@menu/menu_detail_toolbar"             />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Scroll View -->
     <androidx.core.widget.NestedScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
@@ -24,7 +32,6 @@
         android:layout_marginBottom="80dp"
         android:layout_below="@id/topAppBar"
         android:clipToPadding="false"
-        android:paddingTop="56dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <LinearLayout
@@ -46,9 +53,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="16dp"
-                app:dotsSize="8dp"
-                app:dotsColor="@color/black"
-                app:selectedDotColor="@color/black"/>
+                app:dotsSize="6dp"
+                app:dotsColor="@color/onBackground"
+                app:selectedDotColor="@color/tertiary"/>
 
             <!-- Detail Room -->
             <TextView
@@ -56,15 +63,30 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="VIP Karaoke Room"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+                style="@style/TextHeadline"/>
 
-            <TextView
-                android:id="@+id/roomCapacity"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Capacity: 8 People"
-                android:layout_marginTop="4dp" />
+                android:layout_marginTop="4dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/ic_groups"
+                    app:tint="@color/primary" />
+
+                <TextView
+                    android:id="@+id/roomCapacity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:text="8 people"
+                    style="@style/TextBody"
+                    android:textColor="@color/primary" />
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/labelDescription"
@@ -72,7 +94,7 @@
                 android:layout_height="wrap_content"
                 android:text="Room Description"
                 android:textStyle="bold"
-                android:textSize="16sp"
+                style="@style/TextSubtitle"
                 android:layout_marginTop="12dp" />
 
             <TextView
@@ -81,7 +103,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/room_description"
                 android:lineHeight="20sp"
-                android:layout_marginTop="4dp" />
+                android:layout_marginTop="4dp"
+                style="@style/TextBody" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
@@ -91,12 +114,12 @@
     android:layout_width="match_parent"
     android:layout_height="80dp"
     android:layout_gravity="bottom"
-    android:background="@color/white"
     android:orientation="horizontal"
-    android:elevation="8dp"
+    android:elevation="16dp"
     android:padding="16dp"
     android:gravity="center_vertical"
-    android:weightSum="1">
+    android:weightSum="1"
+    android:background="@color/surface">
 
     <TextView
         android:id="@+id/roomPrice"
@@ -104,8 +127,8 @@
         android:layout_height="wrap_content"
         android:layout_weight="0.5"
         android:text="Rp 250.000"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        android:textColor="@color/primary"
+        style="@style/TextCardTitle" />
 
     <Button
         android:id="@+id/btnReserve"
@@ -113,6 +136,6 @@
         android:layout_height="wrap_content"
         android:layout_weight="0.5"
         android:text="Booking Now"
-        android:backgroundTint="@color/primary"/>
+        android:backgroundTint="@color/tertiary"/>
     </LinearLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="80dp"
-    android:fillViewport="true"
-    android:background="@color/primaryBackground">
+    android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main"
@@ -20,7 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Hi, Username 👋"
-            android:textSize="16sp"
+            style="@style/TextSubtitle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -29,10 +28,9 @@
             android:id="@+id/labelWelcome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Looking for a karaoke room?"
-            android:textSize="22sp"
-            android:textStyle="bold"
             android:layout_marginTop="8dp"
+            android:text="Looking for a karaoke room?"
+            style="@style/TextSectionTitle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/labelUsername" />
 
@@ -41,12 +39,12 @@
             android:id="@+id/inputSearch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Search Room"
             android:layout_marginTop="16dp"
-            style="@style/inputField"
+            android:hint="Search Room"
             app:endIconMode="custom"
             app:endIconDrawable="@drawable/ic_search"
             app:endIconContentDescription="Search Room"
+            style="@style/InputField"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/labelWelcome">

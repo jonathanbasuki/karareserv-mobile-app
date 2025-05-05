@@ -8,7 +8,7 @@
     android:paddingEnd="16dp"
     android:paddingTop="16dp"
     android:paddingBottom="80dp"
-    android:background="@color/primaryBackground">
+    android:background="@color/background">
 
     <!-- Text di atas TabLayout -->
     <TextView
@@ -25,7 +25,7 @@
         android:id="@+id/tabs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/secondaryBackground"
+        android:background="@color/background"
         app:tabIndicatorFullWidth="false" />
 
     <!-- ViewPager2 -->
