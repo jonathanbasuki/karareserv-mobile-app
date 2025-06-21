@@ -3,8 +3,11 @@ package com.pemrograman_platform.karareserve.ui.home
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
+import android.widget.ImageView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.graphics.drawable.DrawableCompat
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.appbar.MaterialToolbar
 import com.pemrograman_platform.karareserve.R
@@ -18,6 +21,8 @@ class DetailActivity : AppCompatActivity() {
     private lateinit var imageSlider: ViewPager2
     private lateinit var imageAdapter: ImageSliderAdapter
     private lateinit var dotsIndicator: DotsIndicator
+
+    private var isFavorited = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -71,10 +76,25 @@ class DetailActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_detail_toolbar, menu)
 
-        val favoriteItem = menu?.findItem(R.id.action_favorite)
-        favoriteItem?.icon?.setTint(ContextCompat.getColor(this, R.color.tertiary))
+        val menuItem = menu?.findItem(R.id.action_favorite)
+        val actionView = menuItem?.actionView
+        val iconView = actionView?.findViewById<ImageView>(R.id.favorite_icon)
+
+        updateFavoriteIcon(iconView)
+
+        iconView?.setOnClickListener {
+            isFavorited = !isFavorited
+
+            updateFavoriteIcon(iconView)
+        }
 
         return true
+    }
+
+    private fun updateFavoriteIcon(iconView: ImageView?) {
+        val iconRes = if (isFavorited) R.drawable.ic_favorite_fill else R.drawable.ic_favorite
+
+        iconView?.setImageResource(iconRes)
     }
 
 }

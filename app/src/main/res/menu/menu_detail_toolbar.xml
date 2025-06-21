@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/action_favorite"
-        android:icon="@drawable/ic_favorite"
         android:title="Wishlist"
-        app:iconSize="48dp"
+        app:actionLayout="@layout/custom_menu_icon"
         app:showAsAction="always" />
 </menu>

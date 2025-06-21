@@ -177,20 +177,31 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Duration"
-                android:layout_marginTop="16dp" />
+                android:textSize="16sp"
+                android:layout_marginTop="16dp"
+                android:textColor="@color/black" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:gravity="center_vertical">
+                android:gravity="center_vertical"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/duration_background"
+                android:padding="8dp"
+                android:layout_marginBottom="8dp"
+                android:elevation="2dp"
+                android:layout_gravity="center_horizontal">
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnMinus"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/primary"
-                    android:text="-" />
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:icon="@drawable/ic_remove"
+                    app:iconTint="@color/primary"
+                    android:backgroundTint="@android:color/transparent"
+                    android:strokeColor="@color/primary"/>
 
                 <TextView
                     android:id="@+id/textDuration"
@@ -199,14 +210,19 @@
                     android:gravity="center"
                     android:text="1"
                     android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
                     android:layout_marginHorizontal="8dp" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnPlus"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="+"
-                    android:backgroundTint="@color/primary"/>
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:icon="@drawable/ic_add"
+                    android:iconTint="@color/primary"
+                    android:backgroundTint="@android:color/transparent"
+                    android:strokeColor="@color/primary" />
             </LinearLayout>
 
             <!-- Metode Pembayaran -->
@@ -242,14 +258,13 @@
                     android:text="Cash" />
             </com.google.android.material.chip.ChipGroup>
 
-            <!-- Tombol Booking -->
+            <!-- Booking -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnBookNow"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Confirm Booking"
-                android:backgroundTint="@color/primary"
-                android:layout_marginTop="16dp" />
+                android:layout_marginTop="16dp"
+                android:text="Confirm Booking" />
         </LinearLayout>
     </ScrollView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

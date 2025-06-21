@@ -1,16 +1,17 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id("com.google.gms.google-services")
 }
 
 android {
     namespace = "com.pemrograman_platform.karareserve"
-    compileSdk = 36
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.pemrograman_platform.karareserve"
-        minSdk = 21
-        targetSdk = 36
+        minSdk = 23
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -49,6 +50,8 @@ dependencies {
     implementation(libs.dotsindicator)
     implementation(libs.homayoonahmadi.curvenavx)
     implementation(libs.glide)
+
+    implementation(libs.google.firebase.auth)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

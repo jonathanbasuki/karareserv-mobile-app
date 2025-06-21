@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "964686366646",
+    "project_id": "karareserve",
+    "storage_bucket": "karareserve.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:964686366646:android:3588c97e188b51e11b2317",
+        "android_client_info": {
+          "package_name": "com.pemrograman_platform.karareserve"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBG6zinqwvmO0w4ILEnLAF_nbFx5CSJMAI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
