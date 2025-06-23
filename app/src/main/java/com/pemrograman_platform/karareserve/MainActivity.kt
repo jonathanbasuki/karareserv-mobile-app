@@ -17,11 +17,14 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.fragmentContainer, HomeFragment())
-                .commit()
+        val destination = intent.getStringExtra("NAVIGATE_TO")
+        val initialPage = when (destination) {
+            "history" -> 1
+            "profile" -> 2
+            else -> 0
         }
+
+        binding.bottomNavigation.show(initialPage, true) // trigger tab selected programmatically
 
         binding.bottomNavigation.setOnShowListener { item ->
             binding.bottomNavigation.clearCountDelayed(item.id, 200)

@@ -58,6 +58,7 @@ class DetailActivity : AppCompatActivity() {
                     val firstImage = imageUrls.firstOrNull() ?: ""
 
                     val intent = Intent(this@DetailActivity, BookingActivity::class.java).apply {
+                        putExtra("ROOM_UUID", room.roomUuid)
                         putExtra("ROOM_TYPE", room.roomType)
                         putExtra("ROOM_PRICE", room.hourlyRate)
                         putExtra("ROOM_IMAGE", firstImage)

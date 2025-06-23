@@ -29,8 +29,9 @@
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardElevation="4dp"
+                app:cardElevation="8dp"
                 app:cardCornerRadius="12dp"
+                app:strokeColor="@color/primary"
                 android:layout_marginBottom="16dp"
                 android:padding="16dp">
 
@@ -46,7 +47,6 @@
                         android:layout_width="120dp"
                         android:layout_height="100dp"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/vip_room"
                         android:layout_marginEnd="16dp"
                         android:background="@drawable/image_corner_radius" />
 
@@ -61,7 +61,7 @@
                             android:id="@+id/roomName"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="VIP Room"
+                            android:text="Room Type"
                             android:textStyle="bold"
                             android:textSize="20sp"
                             android:textColor="@color/black" />
@@ -70,7 +70,7 @@
                             android:id="@+id/roomPrice"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Rp 100.000 / jam"
+                            android:text="Hourly Price"
                             android:textSize="16sp"
                             android:textColor="@color/black"
                             android:layout_marginTop="4dp" />
@@ -79,39 +79,36 @@
             </com.google.android.material.card.MaterialCardView>
 
             <!-- Form Booking -->
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Name"
-                style="@style/InputField" >
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/inputName"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-            </com.google.android.material.textfield.TextInputLayout>
-
             <!-- Tanggal -->
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputDateLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Booking Date"
                 android:layout_marginTop="16dp"
-                style="@style/InputField" >
+                app:boxBackgroundMode="outline"
+                app:boxStrokeColor="@color/primary"
+                app:boxCornerRadiusBottomEnd="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusTopStart="12dp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/inputDate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="none"
                     android:focusable="false"
-                    android:clickable="true"/>
+                    android:clickable="true"
+                    android:hint="Booking Date" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <!-- Pilihan Jam -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Time"
+                android:text="Booking Time"
+                android:textSize="16sp"
                 android:layout_marginTop="16dp" />
 
             <HorizontalScrollView
@@ -130,43 +127,43 @@
                     <com.google.android.material.chip.Chip
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="@color/primaryContainer"
+                        android:elevation="4dp"
                         android:text="08:00" />
 
                     <com.google.android.material.chip.Chip
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="@color/primaryContainer"
+                        android:elevation="4dp"
                         android:text="10:00" />
 
                     <com.google.android.material.chip.Chip
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="@color/primaryContainer"
+                        android:elevation="4dp"
                         android:text="13:00" />
 
                     <com.google.android.material.chip.Chip
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="@color/primaryContainer"
+                        android:elevation="4dp"
                         android:text="15:00" />
 
                     <com.google.android.material.chip.Chip
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="@color/primaryContainer"
+                        android:elevation="4dp"
                         android:text="18:00" />
 
                     <com.google.android.material.chip.Chip
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="@color/primaryContainer"
+                        android:elevation="4dp"
                         android:text="20:00" />
 
                     <com.google.android.material.chip.Chip
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="@color/primaryContainer"
+                        android:elevation="4dp"
                         android:text="22:00" />
                 </com.google.android.material.chip.ChipGroup>
             </HorizontalScrollView>
@@ -176,7 +173,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Duration"
+                android:text="Booking Duration"
                 android:textSize="16sp"
                 android:layout_marginTop="16dp"
                 android:textColor="@color/black" />
@@ -185,7 +182,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:gravity="center_vertical"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/duration_background"
                 android:padding="8dp"
@@ -193,15 +189,14 @@
                 android:elevation="2dp"
                 android:layout_gravity="center_horizontal">
 
-                <com.google.android.material.button.MaterialButton
+                <ImageButton
                     android:id="@+id/btnMinus"
-                    style="@style/Widget.Material3.Button.OutlinedButton"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:icon="@drawable/ic_remove"
-                    app:iconTint="@color/primary"
-                    android:backgroundTint="@android:color/transparent"
-                    android:strokeColor="@color/primary"/>
+                    android:background="@drawable/bg_icon_button"
+                    android:src="@drawable/ic_remove"
+                    android:contentDescription="Min Duration"
+                    app:tint="@color/background" />
 
                 <TextView
                     android:id="@+id/textDuration"
@@ -212,17 +207,17 @@
                     android:textSize="16sp"
                     android:textStyle="bold"
                     android:textColor="@color/black"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginHorizontal="8dp" />
 
-                <com.google.android.material.button.MaterialButton
+                <ImageButton
                     android:id="@+id/btnPlus"
-                    style="@style/Widget.Material3.Button.OutlinedButton"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:icon="@drawable/ic_add"
-                    android:iconTint="@color/primary"
-                    android:backgroundTint="@android:color/transparent"
-                    android:strokeColor="@color/primary" />
+                    android:background="@drawable/bg_icon_button"
+                    android:src="@drawable/ic_add"
+                    android:contentDescription="Add Duration"
+                    app:tint="@color/background" />
             </LinearLayout>
 
             <!-- Metode Pembayaran -->
@@ -230,6 +225,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Payment Method"
+                android:textSize="16sp"
                 android:layout_marginTop="16dp" />
 
             <com.google.android.material.chip.ChipGroup
@@ -242,19 +238,19 @@
                 <com.google.android.material.chip.Chip
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/primaryContainer"
+                    android:elevation="4dp"
                     android:text="QRIS" />
 
                 <com.google.android.material.chip.Chip
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/primaryContainer"
-                    android:text="Bank Transfer" />
+                    android:elevation="4dp"
+                    android:text="Card" />
 
                 <com.google.android.material.chip.Chip
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/primaryContainer"
+                    android:elevation="4dp"
                     android:text="Cash" />
             </com.google.android.material.chip.ChipGroup>
 
@@ -267,4 +263,24 @@
                 android:text="Confirm Booking" />
         </LinearLayout>
     </ScrollView>
+
+    <!-- Progress Bar -->
+    <FrameLayout
+        android:id="@+id/progressContainer"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/progress_background"
+        android:padding="20dp"
+        android:elevation="4dp"
+        android:visibility="gone"
+        android:layout_gravity="center">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Large"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:indeterminate="true"
+            android:indeterminateDrawable="@drawable/progress_drawable" />
+    </FrameLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
