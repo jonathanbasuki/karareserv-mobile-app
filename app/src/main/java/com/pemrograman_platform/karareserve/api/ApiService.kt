@@ -1,6 +1,7 @@
 package com.pemrograman_platform.karareserve.api
 
 import com.pemrograman_platform.karareserve.data.BookingRequest
+import com.pemrograman_platform.karareserve.data.BookingResponse
 import com.pemrograman_platform.karareserve.data.KaraokeRoomDetailResponse
 import com.pemrograman_platform.karareserve.data.KaraokeRoomResponse
 import okhttp3.ResponseBody
@@ -15,8 +16,18 @@ interface RoomApiService {
     suspend fun getRooms(): KaraokeRoomResponse
 
     @GET("/room/{uuid}")
-    suspend fun getRoomByUuid(@Path("uuid") uuid: String): KaraokeRoomDetailResponse
+    suspend fun getRoomByUuid(
+        @Path("uuid") uuid: String
+    ): KaraokeRoomDetailResponse
 
     @POST("booking/")
-    fun postBooking(@Body request: BookingRequest): Call<ResponseBody>
+    fun postBooking(
+        @Body request: BookingRequest
+    ): Call<ResponseBody>
+
+    @GET("/booking/{user}")
+    fun getBookings(
+        @Path("user") userUuid: String
+    ): Call<BookingResponse>
+
 }

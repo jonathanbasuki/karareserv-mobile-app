@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.pemrograman_platform.karareserve.R
 import com.pemrograman_platform.karareserve.adapter.KaraokeRoomAdapter
-import com.pemrograman_platform.karareserve.data.KaraokeRoom
 import com.pemrograman_platform.karareserve.utils.GridSpacingItemDecoration
 import com.pemrograman_platform.karareserve.viewmodel.RoomViewModel
 
@@ -19,6 +18,7 @@ class HomeFragment : Fragment() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var roomAdapter: KaraokeRoomAdapter
+
     private val viewModel: RoomViewModel by viewModels()
 
     override fun onCreateView(

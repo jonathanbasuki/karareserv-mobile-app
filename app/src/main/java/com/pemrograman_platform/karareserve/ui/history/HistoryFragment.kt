@@ -1,35 +1,87 @@
 package com.pemrograman_platform.karareserve.ui.history
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.google.android.material.tabs.TabLayoutMediator
-import com.pemrograman_platform.karareserve.R
-import com.pemrograman_platform.karareserve.adapter.HistoryPagerAdapter
+import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.auth.FirebaseAuth
+import com.pemrograman_platform.karareserve.adapter.BookingHistoryAdapter
+import com.pemrograman_platform.karareserve.api.ApiClient
+import com.pemrograman_platform.karareserve.data.BookingHistory
+import com.pemrograman_platform.karareserve.data.BookingResponse
 import com.pemrograman_platform.karareserve.databinding.FragmentHistoryBinding
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class HistoryFragment : Fragment() {
-
     private lateinit var binding: FragmentHistoryBinding
+    private lateinit var roomAdapter: BookingHistoryAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentHistoryBinding.inflate(inflater, container, false)
+        binding.recyclerViewBooking.layoutManager = LinearLayoutManager(context)
 
-        val adapter = HistoryPagerAdapter(this)
-        binding.viewPager.adapter = adapter
-
-        TabLayoutMediator(binding.tabs, binding.viewPager) { tab, position ->
-            tab.text = when (position) {
-                0 -> "Active"
-                else -> "History"
+        roomAdapter = BookingHistoryAdapter(emptyList()) { booking ->
+            val intent = Intent(requireContext(), PaymentActivity::class.java).apply {
+                putExtra("BOOKING_UUID", booking.bookingUuid)
             }
-        }.attach()
+
+            startActivity(intent)
+        }
+
+        binding.recyclerViewBooking.adapter = roomAdapter
+
+        fetchBookingHistory()
 
         return binding.root
     }
+
+    private fun fetchBookingHistory() {
+        val user = FirebaseAuth.getInstance().currentUser
+        val userUuid = user?.uid ?: return showToast("User not logged in")
+
+        ApiClient.retrofitService.getBookings(userUuid)
+            .enqueue(object : Callback<BookingResponse> {
+                override fun onResponse(
+                    call: Call<BookingResponse>,
+                    response: Response<BookingResponse>
+                ) {
+                    if (response.isSuccessful) {
+                        val bookings = response.body()?.result ?: emptyList()
+                        updateBookingList(bookings)
+                    } else {
+                        showToast("Failed to fetch data: ${response.code()}")
+                    }
+                }
+
+                override fun onFailure(call: Call<BookingResponse>, t: Throwable) {
+                    showToast("Network error: ${t.message}")
+                }
+            })
+    }
+
+    private fun updateBookingList(bookings: List<BookingHistory>) {
+        if (bookings.isEmpty()) {
+            binding.cardEmpty.visibility = View.VISIBLE
+            binding.recyclerViewBooking.visibility = View.GONE
+        } else {
+            binding.cardEmpty.visibility = View.GONE
+            binding.recyclerViewBooking.visibility = View.VISIBLE
+            roomAdapter.updateData(bookings)
+        }
+    }
+
+
+    private fun showToast(msg: String) {
+        Toast.makeText(requireContext(), msg, Toast.LENGTH_SHORT).show()
+    }
 }
+
