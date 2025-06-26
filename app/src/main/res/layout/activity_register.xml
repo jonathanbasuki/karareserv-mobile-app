@@ -51,26 +51,6 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- Username Input -->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/inputUsername"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:hint="Username"
-        style="@style/InputField"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/inputEmail">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/valueUsername"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:maxLines="1" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
     <!-- Password Input -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/inputPassword"
@@ -82,7 +62,7 @@
         app:endIconMode="password_toggle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputUsername">
+        app:layout_constraintTop_toBottomOf="@+id/inputEmail">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/valuePassword"

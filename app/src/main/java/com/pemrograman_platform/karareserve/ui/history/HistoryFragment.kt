@@ -1,6 +1,7 @@
 package com.pemrograman_platform.karareserve.ui.history
 
 import android.content.Intent
+import android.graphics.Rect
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.pemrograman_platform.karareserve.adapter.BookingHistoryAdapter
 import com.pemrograman_platform.karareserve.api.ApiClient
@@ -38,6 +40,22 @@ class HistoryFragment : Fragment() {
         }
 
         binding.recyclerViewBooking.adapter = roomAdapter
+
+        val marginBottomInPx = (16 * resources.displayMetrics.density).toInt()
+        binding.recyclerViewBooking.addItemDecoration(object : RecyclerView.ItemDecoration() {
+            override fun getItemOffsets(
+                outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State
+            ) {
+                val position = parent.getChildAdapterPosition(view)
+                val itemCount = parent.adapter?.itemCount ?: 0
+                if (position < itemCount - 1) {
+                    outRect.set(0, 0, 0, marginBottomInPx)
+                } else {
+                    outRect.set(0, 0, 0, 0)
+                }
+            }
+        })
+
 
         fetchBookingHistory()
 
